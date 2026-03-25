@@ -519,14 +519,15 @@ function renderDoubanCards(data, container) {
             card.className = "bg-[#111] hover:bg-[#222] transition-all duration-300 rounded-lg overflow-hidden flex flex-col transform hover:scale-105 shadow-md hover:shadow-lg";
             
             // 生成卡片内容，确保安全显示（防止XSS）
-            const safeTitle = item.title
-                .replace(/</g, '&lt;')
-                .replace(/>/g, '&gt;')
-                .replace(/"/g, '&quot;');
+            //20260325修改的
+            //const safeTitle = item.title
+            //    .replace(/</g, '&lt;')
+            //    .replace(/>/g, '&gt;')
+            //    .replace(/"/g, '&quot;');
             
-            const safeRate = (item.rate || "暂无")
-                .replace(/</g, '&lt;')
-                .replace(/>/g, '&gt;');
+            //const safeRate = (item.rate || "暂无")
+            //    .replace(/</g, '&lt;')
+            //    .replace(/>/g, '&gt;');
             
             // 处理图片URL
             // 1. 直接使用豆瓣图片URL (添加no-referrer属性)
