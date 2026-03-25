@@ -520,21 +520,22 @@ function renderDoubanCards(data, container) {
             
             // 生成卡片内容，确保安全显示（防止XSS）
             //20260325修改的
-            //const safeTitle = item.title
-            //    .replace(/</g, '&lt;')
-            //    .replace(/>/g, '&gt;')
-            //    .replace(/"/g, '&quot;');
+            const safeTitle = item.title
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;');
             
-            //const safeRate = (item.rate || "暂无")
-            //    .replace(/</g, '&lt;')
-            //    .replace(/>/g, '&gt;');
+            const safeRate = (item.rate || "暂无")
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;');
             
             // 处理图片URL
             // 1. 直接使用豆瓣图片URL (添加no-referrer属性)
             const originalCoverUrl = item.cover;
             
             // 2. 也准备代理URL作为备选
-            const proxiedCoverUrl = PROXY_URL + encodeURIComponent(originalCoverUrl);
+            //const proxiedCoverUrl = PROXY_URL + encodeURIComponent(originalCoverUrl);
+            const proxiedCoverUrl = originalCoverUrl;
             
             // 为不同设备优化卡片布局
             card.innerHTML = `
